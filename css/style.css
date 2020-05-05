@@ -1,0 +1,56 @@
+.custom-input {
+    position: relative;
+    width: 100%;
+    height: 75px;
+    overflow: hidden;
+}
+
+.custom-input input {
+    width: 100%;
+    height: 100%;
+    /* color: #5fa8d3; */
+    padding-top: 20px;
+    border: none;
+    outline: none;
+}
+
+.custom-input label {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    pointer-events: none;
+    border-bottom: 1px solid black;
+}
+
+.custom-input label::after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    left: 0;
+    bottom: -2px;
+    position: absolute;
+    border-bottom: 3px solid #5fa8d3;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.content-name {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.custom-input input:focus+.label-name .content-name,
+.custom-input input:not(:placeholder-shown)+.label-name .content-name {
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: #5fa8d3;
+}
+
+.custom-input input:focus+.label-name::after,
+.custom-input input:not(:placeholder-shown)+.label-name::after {
+    transform: translateY(0%);
+}
